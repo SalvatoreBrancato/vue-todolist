@@ -14,9 +14,10 @@
         <div class="container">
             <h1 class="text-center">To Do List</h1>
         </div>
-        <div class="container">
-            <div v-for="(element, index) in list">
-                <div  :class="(element.done == false) ? `text-decoration-line-through` : ``">{{element.text}}</div>
+        <div class="col-6 m-auto mt-5">
+            <div v-for="(element, index) in list" class="d-flex justify-content-between border border-top-0 border-end-0 ps-1">
+                <div  :class="(element.done == false) ? `text-decoration-line-through` : ``" class="fs-3">{{element.text}}</div>
+                <i class="fa-solid fa-xmark fa-shake fa-lg d-flex align-items-center" @click="remove" style="color: #e70d0d;"></i>
             </div>
         </div>
 

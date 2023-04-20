@@ -17,8 +17,10 @@ createApp({
                 }
             ]
         }
+    }, methods:{
+        remove(i){
+            this.list.splice(i, 1)
+            console.log(`funziona`)
+        }
     }
-    // ,methods:{
-
-    // }
 }).mount(`#app`)
