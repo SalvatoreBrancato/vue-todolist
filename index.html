@@ -11,13 +11,21 @@
 </head>
 <body>
     <div id="app">
-        <div class="container">
-            <h1 class="text-center">To Do List</h1>
-        </div>
-        <div class="col-6 m-auto mt-5">
-            <div v-for="(element, index) in list" class="d-flex justify-content-between border border-top-0 border-end-0 ps-1">
-                <div  :class="(element.done == false) ? `text-decoration-line-through` : ``" class="fs-3">{{element.text}}</div>
-                <i class="fa-solid fa-xmark fa-shake fa-lg d-flex align-items-center" @click="remove" style="color: #e70d0d;"></i>
+        <div id="display" class="vh-100">
+            <div class="container">
+                <h1 class="text-center">To Do List</h1>
+            </div>
+            <!-- Input -->
+            <div class="input-group mb-3 container w-50">
+                <input type="text" class="form-control" aria-label="Text input with checkbox" v-model="textInput" @KeyUp.enter="creaElemento">
+                <button type="button" class="btn btn-success" @click="creaElemento">Aggiungi nota</button>
+            </div>
+            <!-- Lista to do con ciclo for-->
+            <div class="col-6 m-auto mt-5">
+                <div v-for="(element, index) in list" class="d-flex justify-content-between border border-top-0 border-end-0 border-success ps-1 mt-3">
+                    <div  :class="(element.done == false) ? `text-decoration-line-through` : ``" class="fs-3">{{element.text}}</div>
+                    <i class="fa-solid fa-xmark fa-shake fa-lg d-flex align-items-center" @click="remove" style="color: #e70d0d;"></i>
+                </div>
             </div>
         </div>
 

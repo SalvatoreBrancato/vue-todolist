@@ -4,15 +4,15 @@ createApp({
         return{
             list: [
                 {
-                    text: `Frutta`,
+                    text: `Fare la spesa`,
                     done: true
                 },
                 {
-                    text: `Verdura`,
+                    text: `Fare carosello`,
                     done: false
                 },
                 {
-                    text: `Pesce`,
+                    text: `Andare in plaestra`,
                     done: true
                 }
             ]
@@ -21,6 +21,20 @@ createApp({
         remove(i){
             this.list.splice(i, 1)
             console.log(`funziona`)
+        },
+
+        creaElemento(){
+            if( this.textInput != ''){
+                this.list.push({
+                text: this.textInput,
+                done: true
+            })
+                this.textInput = ''
+                
+            }
+                
+            
         }
     }
 }).mount(`#app`)
+
