@@ -23,8 +23,14 @@
             <!-- Lista to do con ciclo for-->
             <div class="col-6 m-auto mt-5">
                 <div v-for="(element, index) in list" class="d-flex justify-content-between border border-top-0 border-end-0 border-success ps-1 mt-3">
-                    <div  :class="(element.done == false) ? `text-decoration-line-through` : ``" class="fs-3">{{element.text}}</div>
-                    <i class="fa-solid fa-xmark fa-shake fa-lg d-flex align-items-center" @click="remove" style="color: #e70d0d;"></i>
+                    <div class="d-flex">
+                        <input type="checkbox" class="mx-2"  @click="check(index)">
+                        <div id="nota" :class="(element.done == false) ? `text-decoration-line-through` : ``" class="fs-3">{{element.text}}</div>
+                    </div>
+                    <i class="fa-solid fa-trash fa-shake fa-lg d-flex align-items-center" @click="remove(index)" style="color: #e70d0d;"></i>
+                </div>
+                <div v-if="list.length == 0" class="d-flex justify-content-center align-items-center p-3 fs-3 text-center">
+                    <p class="m-0">Hai portato tutto a termine, goditi la giornata 😎</p>
                 </div>
             </div>
         </div>

@@ -9,7 +9,7 @@ createApp({
                 },
                 {
                     text: `Fare carosello`,
-                    done: false
+                    done: true
                 },
                 {
                     text: `Andare in plaestra`,
@@ -31,9 +31,15 @@ createApp({
             })
                 this.textInput = ''
                 
-            }
-                
-            
+            }       
+        },
+
+        check(i){
+           if(this.list[i].done == false){
+                this.list[i].done = true
+           } else{
+                this.list[i].done = false
+           }
         }
     }
 }).mount(`#app`)
